@@ -1,8 +1,8 @@
 #!/bin/sh
-PAAS_TOKEN=3ysAszHpTrKCe_ZDet-Nl
-API_TOKEN=C-oskAU-QMKtvq0cKnKSU
+PAAS_TOKEN=YYYYYYYYYYY
+API_TOKEN=XXXXXXXXXXXX
 # Dynatrace API Url including /api
-TENANT_API=https://blr06292.live.dynatrace.com/api
+TENANT_API=https://tenantid.live.dynatrace.com/api
 
 # Install the operator
 echo "Creating dynatrace K8s namespace"
