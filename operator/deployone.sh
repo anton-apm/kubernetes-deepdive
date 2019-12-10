@@ -23,7 +23,7 @@ read REPLY
 deploy_operator () {
 export API_TOKEN=$API_TOKEN
 export PAAS_TOKEN=$PAAS_TOKEN
-export TENANT_API=https://$TENANT_URL/api
+export TENANT_API=https://$TENANT_API/api
 
 # Install the operator
 echo "Creating dynatrace K8s namespace"
