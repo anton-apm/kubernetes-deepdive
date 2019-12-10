@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Usage: sh check-whackapod-service.sh "
+echo "Usage: sh check-resilience.sh "
 echo "Press [CTRL+C] to stop.."
 PUBLIC_IP=$(curl -s ifconfig.me)
 
