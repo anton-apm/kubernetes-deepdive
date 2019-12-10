@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Ask the user for their name
 echo "Please enter the API_TOKEN:"
 read API_TOKEN
@@ -35,5 +35,6 @@ curl -o cr.yaml https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-o
 sed -i "s+apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api+apiUrl: $TENANT_API+g" cr.yaml
 kubectl create -f cr.yaml
 echo "Done deploying the oneagent via operator"
+
 fi
 exit
