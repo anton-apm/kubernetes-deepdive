@@ -1,8 +1,24 @@
 #!/bin/sh
-PAAS_TOKEN=YYYYYYYYYYY
-API_TOKEN=XXXXXXXXXXXX
-# Dynatrace API Url including /api
-TENANT_API=https://tenantid.live.dynatrace.com/api
+# Ask the user for their name
+echo "Please enter the API_TOKEN:"
+read API_TOKEN
+echo "Please enter the PAAS_TOKEN:"
+read PAAS_TOKEN
+echo "Please enter the Tenant URl without leading /"
+echo "Managed example: manageddns.dynatrace-managed.com/e/thetenantid"
+echo "SaaS example: abc1234.live.dynatrace.com"
+read TENANT_API
+
+echo "API_TOKEN="$API_TOKEN
+echo "PAAS_TOKEN="$PAAS_TOKEN
+echo "TENANT_URL="$TENANT_API
+echo "Is this correct? [y/n]"
+read REPLY
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+export API_TOKEN=$API_TOKEN
+export PAAS_TOKEN=$PAAS_TOKEN
+export TENANT_API=https://$TENANT_URL/api
 
 # Install the operator
 echo "Creating dynatrace K8s namespace"
@@ -19,3 +35,5 @@ curl -o cr.yaml https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-o
 sed -i "s+apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api+apiUrl: $TENANT_API+g" cr.yaml
 kubectl create -f cr.yaml
 echo "Done deploying the oneagent via operator"
+fi
+exit
