@@ -1,10 +1,9 @@
-
 #!/bin/bash
 
 # We copy the custom.properties to the default path.
-printf "copying custom.properties file to /var/lib/dynatrace/gateway/config/custom.properties"
+printf "\nCopying custom.properties file to /var/lib/dynatrace/gateway/config/custom.properties"
 cp custom.properties /var/lib/dynatrace/gateway/config/custom.properties
-printf "restarting dynatrace gateway.."
+printf "\n\nRestarting dynatrace Gateway..."
 # We restart the service
 service dynatracegateway restart
-printf "done restarting dynatrace"
+printf "\nDone restarting dynatrace Gateway"
