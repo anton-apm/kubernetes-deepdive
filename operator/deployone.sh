@@ -6,8 +6,8 @@ echo "Please enter the API_TOKEN:"
 read API_TOKEN
 echo "Please enter the PAAS_TOKEN:"
 read PAAS_TOKEN
-echo "Please enter the Tenant URl without leading /"
-echo "Managed example: manageddns.dynatrace-managed.com/e/thetenantid"
+echo "Please enter the Tenant URl without leading / nor protocol"
+echo "Managed example: abc1234.dynatrace-managed.com/e/thetenantid"
 echo "SaaS example: abc1234.live.dynatrace.com"
 read TENANT_API
 
@@ -17,7 +17,6 @@ echo "TENANT_URL="$TENANT_API
 echo "Is this correct? [y/n]"
 read REPLY
 }
-
 
 
 deploy_operator () {
