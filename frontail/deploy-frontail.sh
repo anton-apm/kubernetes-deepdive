@@ -1,5 +1,6 @@
 #!/bin/bash
-## Bash to prepare the Tail -f deployment for the history file
+# Usage: sh deploy-frontail.sh
+# Bash to prepare and deploy the Tail -f application for streaming the history file
 # Create directory for the Persistent Volume
 mkdir /tmp/pv-data/
 # Adapt the access rights
