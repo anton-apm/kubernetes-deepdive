@@ -19,7 +19,8 @@ endless_check(){
 }
 # Do a URL Check with a timeut of 500
 check_svc(){
-  printf "Check: $url :"
-  curl -X GET -H "$contentType" -H "$dtHeaderGet" $url --connect-timeout 0.5
+  response=$(curl -s -X GET -H "$contentType" -H "$dtHeaderGet" $url --connect-timeout 0.5)
+  printf "Check: $url :$response \n"
+  
 }
 endless_check
