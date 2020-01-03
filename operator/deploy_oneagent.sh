@@ -31,7 +31,7 @@ LATEST_RELEASE=$(curl -s https://api.github.com/repos/dynatrace/dynatrace-oneage
 echo "Creating K8s deployment for the latest oneagent operator release"
 kubectl create -f https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/$LATEST_RELEASE/deploy/kubernetes.yaml
 #kubectl -n dynatrace logs -f deployment/dynatrace-oneagent-operator
-kubectl -n dynatrace create secret generic oneagent --from-literal="apiToken=$API_TOKEN" --from-literal="paasToken=$PAAS_TOKEN"
+kubectl -n dynatrace create secret generic oneagent --from-literal="apiToken=$API_TOKEN" --from-literal="paasToken=PAAS_TOKEN"
 
 curl -o cr.yaml https://raw.githubusercontent.com/Dynatrace/dynatrace-oneagent-operator/$LATEST_RELEASE/deploy/cr.yaml
 sed -i "s+apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api+apiUrl: $TENANT_API+g" cr.yaml
