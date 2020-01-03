@@ -32,6 +32,6 @@ spec:
             - "500"
             - "/history.log"
           volumeMounts:
-            - mountPath: "/"
+            - mountPath: "/pv-data"
               name: frontail-storage
           resources: {}
