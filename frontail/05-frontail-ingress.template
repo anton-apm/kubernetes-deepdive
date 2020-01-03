@@ -5,7 +5,7 @@ metadata:
   name: frontail-ingress
 spec:
   rules:
-  - host: history.PUBLIC_IP.xip.io
+  - host: bash_history.PUBLIC_IP.xip.io
     http:
       paths:
       - backend:

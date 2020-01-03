@@ -1,17 +1,17 @@
 #!/bin/bash
 ## Bash to prepare the Tail -f deployment for the history file
 # Create directory for the Persistent Volume
-mkdir /pv-data/
+mkdir /tmp/pv-data/
 # Adapt the access rights
-chmod 755 -R /pv-data
+chmod 755 -R /tmp/pv-data
 # Identify the user
 USER=$(whoami)
 # Change ownership
-chown $USER:$USER /pv-data
+chown $USER:$USER /tmp/pv-data
 # Write in the history file after each command (dont keep in memory)
 export PROMPT_COMMAND='history -a'
 # Make hardlink
-ln  ~/.bash_history /pv-data/history.log
+ln  ~/.bash_history /tmp/pv-data/history.log
 # Set the public ip for the ingress rule.
 export PUBLIC_IP=$(curl -s ifconfig.me) 
 sed "s/PUBLIC_IP/$PUBLIC_IP/g" 05-frontail-ingress.template > 05-frontail-ingress.yaml

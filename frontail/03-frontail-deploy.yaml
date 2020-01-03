@@ -30,8 +30,8 @@ spec:
             - "default"
             - "-n"
             - "500"
-            - "/pv-data/history.log"
+            - "/data/history.log"
           volumeMounts:
-            - mountPath: "/pv-data"
+            - mountPath: "/data"
               name: frontail-storage
           resources: {}
