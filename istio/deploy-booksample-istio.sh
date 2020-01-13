@@ -13,7 +13,7 @@ kubectl create ns book
 # We enable the injection in the book namespace
 kubectl label namespace book istio-injection=enabled
 # we install the book 
-kubectl -n book apply -f . 
+kubectl -n book apply -f manifests/ 
 
 # We print out the http NodePort of the Istio IngressGateway with the URL of the app.
 export PUBLIC_IP=$(curl -s ifconfig.me)
